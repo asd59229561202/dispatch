@@ -1,0 +1,6 @@
+{
+    "angular.trace.server": "messages",
+    "angular.view-engine": true,
+    "angular.log": "normal",
+    "angular.forceStrictTemplates": true
+}
