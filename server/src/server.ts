@@ -7,6 +7,8 @@ import productRouter from './routers/product.router'
 import deliverInfoRouter from './routers/deliverInfo.router';
 import userRouter from './routers/user.router';
 import deliverRouter from './routers/deliver.router';
+import truckRouter from './routers/truck.router';
+
 dbConnect();
 
 const app = express();
@@ -27,10 +29,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 
-app.use("/product",productRouter);
-app.use("/deliverInfo",deliverInfoRouter);
-app.use("/user", userRouter);
-app.use('/deliver' , deliverRouter);
+app.use("/api/product",productRouter);
+app.use("/api/deliverInfo",deliverInfoRouter);
+app.use("/api/user", userRouter);
+app.use("/api/deliver" , deliverRouter);
+app.use('/api/truck',truckRouter);
 // GET route - Get all items
 
 app.listen(port, () => {
