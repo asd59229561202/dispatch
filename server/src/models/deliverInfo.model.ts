@@ -1,9 +1,16 @@
 import { Schema, Types, model } from 'mongoose'
 
 export interface deliverInfo {
+<<<<<<< HEAD
     _id: Types.ObjectId;
     sender: string;
     email: string;
+=======
+
+    _id: Types.ObjectId;
+    email: string;
+    sender: string;
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
     receiver: string;
     origin: string;
     destination: string;
@@ -15,8 +22,13 @@ export interface deliverInfo {
     material: string;
     status: string;
     truckingNumber: string;
+<<<<<<< HEAD
     departureDateStart: string;
     departureDateEnd: string;
+=======
+    startDate: string;
+    endDate: string;
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
     createdAt: string;
 }
 export const deliverInfoSchema = new Schema<deliverInfo>(
@@ -35,8 +47,13 @@ export const deliverInfoSchema = new Schema<deliverInfo>(
         material: { type: String, require: true },
         status: { type: String, require: true },
         truckingNumber: { type: String },
+<<<<<<< HEAD
         departureDateStart: { type: String },
         departureDateEnd: { type: String },
+=======
+        startDate: { type: String },
+        endDate: { type: String },
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
         createdAt: { type: String, require: true },
     }, {
     toJSON: {

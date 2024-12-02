@@ -31,8 +31,13 @@ export const sample_deliverMessage: any[] = [
     "status": "運送中",
     "truckingNumber": "AB123456789US",
     "createdAt": "2024-07-12T10:00:00Z",
+<<<<<<< HEAD
     "departureDateStart": "2024-07-12",
     "departureDateEnd": "2024-07-15"
+=======
+    "startDate": "2024-07-12",
+    "endDate": "2024-07-15"
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     "id": 2,
@@ -84,8 +89,13 @@ export const sample_deliverMessage: any[] = [
     "status": "運送中",
     "truckingNumber": "GH987654321US",
     "createdAt": "2024-07-09T18:20:00Z",
+<<<<<<< HEAD
     "departureDateStart": "2024-07-09",
     "departureDateEnd": "2024-07-10"
+=======
+    "startDate": "2024-07-09",
+    "endDate": "2024-07-10"
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     "id": 5,
@@ -103,8 +113,13 @@ export const sample_deliverMessage: any[] = [
     "status": "運送中",
     "truckingNumber": "IJ123456789US",
     "createdAt": "2024-07-08T12:10:00Z",
+<<<<<<< HEAD
     "departureDateStart": "2024-07-08",
     "departureDateEnd": "2024-07-09"
+=======
+    "startDate": "2024-07-08",
+    "endDate": "2024-07-09"
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     "id": 6,
@@ -122,8 +137,13 @@ export const sample_deliverMessage: any[] = [
     "status": "運送中",
     "truckingNumber": "KL987654321US",
     "createdAt": "2024-07-07T09:30:00Z",
+<<<<<<< HEAD
     "departureDateStart": "2024-07-07",
     "departureDateEnd": "2024-07-08"
+=======
+    "startDate": "2024-07-07",
+    "endDate": "2024-07-08"
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     "id": 7,
@@ -141,8 +161,13 @@ export const sample_deliverMessage: any[] = [
     "status": "運送中",
     "truckingNumber": "MN123456789US",
     "createdAt": "2024-07-06T14:45:00Z",
+<<<<<<< HEAD
     "departureDateStart": "2024-07-06",
     "departureDateEnd": "2024-07-07"
+=======
+    "startDate": "2024-07-06",
+    "endDate": "2024-07-07"
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     "id": 8,
@@ -201,13 +226,22 @@ export const sample_deliverMessage: any[] = [
 export const sample_truck: any[] = [
   {
     truckingNumber: 'AB123456789US',
+<<<<<<< HEAD
     isLoading: true,
+=======
+    isLoading: false,
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
     driver: 'John Doe',
     length: 1500,
     width: 250,
     height: 300,
     cargoWeight: 2000,
+<<<<<<< HEAD
     loadingStartTime: new Date('2024-07-12T10:00:00Z')
+=======
+    productId:'',
+    
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'CD987654321US',
@@ -216,7 +250,12 @@ export const sample_truck: any[] = [
     length: 1600,
     width: 250,
     height: 280,
+<<<<<<< HEAD
     cargoWeight: 1800
+=======
+    cargoWeight: 1800,
+    productId:'',
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'EF123456789US',
@@ -225,7 +264,12 @@ export const sample_truck: any[] = [
     length: 1550,
     width: 270,
     height: 290,
+<<<<<<< HEAD
     cargoWeight: 1900
+=======
+    cargoWeight: 1900,
+    productId:'',
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'GH987654321US',
@@ -235,7 +279,12 @@ export const sample_truck: any[] = [
     width: 280,
     height: 300,
     cargoWeight: 2100,
+<<<<<<< HEAD
     loadingStartTime: new Date('2024-07-09T18:20:00Z')
+=======
+    productId:'',
+    
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'IJ123456789US',
@@ -245,7 +294,12 @@ export const sample_truck: any[] = [
     width: 290,
     height: 250,
     cargoWeight: 2200,
+<<<<<<< HEAD
     loadingStartTime: new Date('2024-07-08T12:10:00Z')
+=======
+    productId:'',
+    
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'KL987654321US',
@@ -255,7 +309,12 @@ export const sample_truck: any[] = [
     width: 300,
     height: 290,
     cargoWeight: 2300,
+<<<<<<< HEAD
     loadingStartTime: new Date('2024-07-07T09:30:00Z')
+=======
+    productId:'',
+    
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'MN123456789US',
@@ -265,7 +324,12 @@ export const sample_truck: any[] = [
     width: 300,
     height: 270,
     cargoWeight: 2400,
+<<<<<<< HEAD
     loadingStartTime: new Date('2024-07-06T14:45:00Z')
+=======
+    productId:'',
+    
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'OP987654321US',
@@ -274,7 +338,12 @@ export const sample_truck: any[] = [
     length: 1500,
     width: 300,
     height: 250,
+<<<<<<< HEAD
     cargoWeight: 2000
+=======
+    cargoWeight: 2000,
+    productId:'',
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'QR123456789US',
@@ -283,7 +352,12 @@ export const sample_truck: any[] = [
     length: 1600,
     width: 300,
     height: 280,
+<<<<<<< HEAD
     cargoWeight: 2100
+=======
+    cargoWeight: 2100,
+    productId:'',
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   },
   {
     truckingNumber: 'ST987654321US',
@@ -292,6 +366,11 @@ export const sample_truck: any[] = [
     length: 1700,
     width: 290,
     height: 300,
+<<<<<<< HEAD
     cargoWeight: 2200
+=======
+    cargoWeight: 2200,
+    productId:'',
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
   }
 ];

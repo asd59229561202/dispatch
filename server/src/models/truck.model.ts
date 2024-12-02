@@ -11,7 +11,11 @@ export interface truck {
     height: string;
     cargoWeight: string;
     loadingStartTime: string;
+<<<<<<< HEAD
     cargoId:string;
+=======
+    productId:'',
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
 }
 export const truckSchema = new Schema<truck>(
     {
@@ -24,7 +28,11 @@ export const truckSchema = new Schema<truck>(
         height: { type: String, required: true },
         cargoWeight: { type: String, required: true },
         loadingStartTime: { type: String},
+<<<<<<< HEAD
         cargoId: { type: String},
+=======
+        productId: { type: String},
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
     },{
         toJSON:{
             virtuals:true,

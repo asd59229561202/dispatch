@@ -22,10 +22,17 @@ router.get('/seed', asyncHandler(async (req, res) => {
 router.post('/', asyncHandler(async (req, res) => {
     const user = { email: req.body.email, isAdmin: req.body.isAdmin };
     let deliverInfo;
+<<<<<<< HEAD
     
     if (!user.isAdmin) {
         deliverInfo = await productModel.findOne({ email: user.email });
         
+=======
+
+    if (!user.isAdmin) {
+        deliverInfo = await productModel.findOne({ email: user.email });
+
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
         if (!deliverInfo) {
             res.status(404).send('Product not found');
             return;
@@ -41,13 +48,47 @@ router.post('/', asyncHandler(async (req, res) => {
 // Get specific deliver info by ID
 router.get('/getId/:id', asyncHandler(async (req, res) => {
     const deliverInfo = await deliverInfoModel.findById(req.params.id);
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
     if (!deliverInfo) {
         res.status(404).send('DeliverInfo not found');
         return;
     }
+<<<<<<< HEAD
     
     res.send(deliverInfo);
 }));
 
+=======
+
+    res.send(deliverInfo);
+}));
+
+router.get('/clientfind', asyncHandler(async (req, res) => {
+    const { email } = req.query;
+    console.log(email)
+    const product = await deliverInfoModel.findOne({ email })
+    res.send(product);
+    console.log(product)
+    return;
+
+
+
+}))
+
+router.post('/deleteDeliver', asyncHandler(async (req, res) => {
+    
+    if (req.body._id) {
+        const result = await deliverInfoModel.findByIdAndDelete(req.body._id)
+        if (!result) {
+            res.status(404).json({ "message": "Fail to Delete" });
+        }
+        res.status(200).json(result);
+    }
+    res.status(400).json({ "message": "Invalid Request Data" });
+}))
+>>>>>>> 4a61d0b (Track system folder as a normal directory)
 export default router;
