@@ -1,0 +1,90 @@
+<p-table [value]="deliverInfos" [rows]="5" [paginator]="true">
+  <ng-template pTemplate="header">
+    <tr class="label">
+      <th>出貨人</th>
+      <th>收件人</th>
+      <th>創建日期</th>
+      <th>出貨地</th>
+      <th>目的地</th>
+      <th>數量</th>
+      <th>重量</th>
+      <th>尺吋</th>
+      <th>材質</th>
+      
+      <th>載貨車牌</th>
+      <th>出貨日期</th>
+      <th>到達日期</th>
+      <th>更改</th>
+      <th>完成/取消</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-info>
+    <tr class="message">
+      <td>{{ info.sender }}</td>
+      <td>{{ info.receiver }}</td>
+      <td>{{ info.createdAt | date:'yyyy-MM-dd' }}</td>
+      <td>{{ info.origin }}</td>
+      <td>{{ info.destination }}</td>
+      <td>{{ info.quantity }}</td>
+      <td>{{ info.weight }}</td>
+      <td>{{ info.length }} x {{ info.width }} x {{ info.height }}</td>
+      <td>{{ info.material }}</td>
+      
+      <td class="tnt">
+        <div *ngIf='info.truckingNumber'>
+          <button type="button" pButton label="{{ info.truckingNumber }}"
+            (click)="showDialog(info.truckingNumber,deliverInfos) "
+            [style]="{'background':'white','border':'none','color':'black' }"></button>
+        </div>
+      </td>
+      <td>{{info.startDate | date:'yyyy-MM-dd' }}</td>
+      <td>{{info.endDate | date:'yyyy-MM-dd' }}</td>
+      <td>
+        <p-button label="Change" routerLink="/deliverFor" (onClick)="findProduct(info)" [raised]="true"
+          severity="success" class="change-button"></p-button>
+      </td>
+      <td>
+        <p-button label="Complete" (onClick)="deleteProduct(info)" [raised]="true" severity="danger"
+          class="change-button"></p-button>
+      </td>
+    </tr>
+    <p-dialog header="卡車資訊" [(visible)]="display" [responsive]="true" [style]="{'width':'40vw','height':'60vh'}"
+      [baseZIndex]="10000">
+
+      <p-table [value]="truckInfos">
+        <ng-template pTemplate="header">
+          <tr class="label">
+            <th>車牌</th>
+            <th>駕駛人</th>
+            <th>是否載貨</th>
+            <th>車廂長度</th>
+            <th>車廂寬度</th>
+            <th>車廂高度</th>
+            <th>車體乘載重量</th>
+            <th>載貨率</th>
+            <th>貨物編號</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+          <tr>
+            <td>{{ item.truckingNumber}}</td>
+            <td>{{ item.driver}}</td>
+            <td>{{ item.isLoading}}</td>
+            <td>{{ item.length}}</td>
+            <td>{{ item.width}}</td>
+            <td>{{ item.height}}</td>
+            <td>{{ item.cargoWeight}}</td>
+            <td>{{ calculateRatio(item) | number:'1.2-3' }}%</td>
+            <td>{{ item.productId}}</td>
+
+          </tr>
+        </ng-template>
+      </p-table>
+
+
+      <p-footer>
+        <button type="button" pButton icon="pi pi-check" label="OK" (click)="display=false"></button>
+      </p-footer>
+    </p-dialog>
+  </ng-template>
+</p-table>

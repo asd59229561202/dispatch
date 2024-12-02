@@ -1,0 +1,28 @@
+<!-- header.component.html -->
+<header class="wrapper row full-center">
+  <!--img-->
+  <h1 class="title">運輸系統(僅介面)</h1>
+  <!--navigation-->
+  <div class="row gap-1">
+    <a routerLink="/deliverFor" routerLinkActive="active">Where deliver</a>
+    
+    <div *ngIf="!isAuth">
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+    </div>
+    <div *ngIf="isAuth" class="menu-container">
+      <a >{{ user.name }}</a>
+      <div class="menu">
+        <a routerLink="/profile">個人</a>
+        <div *ngIf="user.isAdmin"><a routerLink="/personelManagement">人員管理</a></div>
+        
+        <a (click)="logout()">登出</a>
+      </div>
+    </div>
+    <div *ngIf="!isAuth">
+      
+      <a routerLink="/register" routerLinkActive="active">Register </a>
+    </div>
+    
+    <a routerLink="/deliverInfo" routerLinkActive="active">Info </a>
+  </div>
+</header>

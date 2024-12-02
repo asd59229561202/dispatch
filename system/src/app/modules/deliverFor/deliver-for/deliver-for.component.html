@@ -1,0 +1,171 @@
+<div *ngIf="isAuth">
+  <div class="wrapper">
+    <div pFocusTrap class="card flex-wrap gap-4 styled-card">
+      <form [formGroup]="deliverForm" (ngSubmit)="onSubmit()">
+        <h4>客戶出單時間</h4>
+        <p-calendar class="mt-20" [iconDisplay]="'input'" readonly [showIcon]="true" id="date" class="styled-calendar"
+          formControlName="date"></p-calendar>
+        <div *ngIf="isSubmitted && fc['date'].errors" class="invalid-feedback">
+          <div *ngIf="fc['date'].errors['required']">出貨時間是必填項</div>
+          <a *ngIf="already_uploading == null"><!-- 如果product日期本來就在 -->
+            <div *ngIf="fc['date'].errors?.['minDate'] && fc['date'].touched">出貨時間不能比今天更早</div>
+          </a>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['name'].errors}">
+          <h4>出貨人</h4>
+          <input id="nameInput" type="text" size="30" pInputText formControlName="name" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['name'].errors" class="invalid-feedback">
+            <div *ngIf="fc['name'].errors['required']">出貨人是必填項</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['email'].errors}">
+          <h4>出貨人信箱</h4>
+          <input id="emailInput" type="email" size="30" pInputText formControlName="email" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['email'].errors" class="invalid-feedback">
+            <div *ngIf="fc['email'].errors['required']">信箱是必填項</div>
+            <div *ngIf="fc['email'].errors['email']">信箱格式不正確</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['quantity'].errors}">
+          <h4>貨物數量 (上限99)</h4>
+          <input id="quantityInput" type="number" size="30" pInputText formControlName="quantity"
+            class="styled-input" />
+          <div *ngIf="isSubmitted && fc['quantity'].errors" class="invalid-feedback">
+            <div *ngIf="fc['quantity'].errors['required']">數量是必填項</div>
+            <div *ngIf="fc['quantity'].errors['max']">數量不能超過99</div>
+            <div *ngIf="fc['quantity'].errors['min']">數量不能小於1</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['length'].errors}">
+          <h4>長度 (上限:300 cm)</h4>
+          <input id="lengthInput" type="number" size="20" pInputText formControlName="length" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['length'].errors" class="invalid-feedback">
+            <div *ngIf="fc['length'].errors['required']">長度是必填項</div>
+            <div *ngIf="fc['length'].errors['min']">長度不能小於0</div>
+            <div *ngIf="fc['length'].errors['max']">長度不能大於300</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['width'].errors}">
+          <h4>寬度 (上限:250 cm)</h4>
+          <input id="widthInput" type="number" size="30" pInputText formControlName="width" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['width'].errors" class="invalid-feedback">
+            <div *ngIf="fc['width'].errors['required']">寬度是必填項</div>
+            <div *ngIf="fc['width'].errors['min']">寬度不能小於0</div>
+            <div *ngIf="fc['width'].errors['max']">寬度不能大於250</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['height'].errors}">
+          <h4>高度 (上限:250 cm)</h4>
+          <input id="heightInput" type="number" size="30" pInputText formControlName="height" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['height'].errors" class="invalid-feedback">
+            <div *ngIf="fc['height'].errors['required']">寬度是必填項</div>
+            <div *ngIf="fc['height'].errors['min']">寬度不能小於0</div>
+            <div *ngIf="fc['height'].errors['max']">高度不能大於250</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['weight'].errors}">
+          <h4>重量 (每箱)</h4>
+          <input id="weightInput" type="number" size="30" pInputText formControlName="weight" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['weight'].errors" class="invalid-feedback">
+            <div *ngIf="fc['weight'].errors['required']">重量是必填項</div>
+            <div *ngIf="fc['weight'].errors['min']">重量不能小於0</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['receiver'].errors}">
+          <h4>收件人</h4>
+          <input id="receiverInput" type="text" size="30" pInputText formControlName="receiver" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['receiver'].errors" class="invalid-feedback">
+            <div *ngIf="fc['receiver'].errors['required']">收件人是必填項</div>
+            <div *ngIf="fc['receiver'].errors['pattern']"></div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['origin'].errors}">
+          <h4>發貨地址</h4>
+          <input id="originInput" type="text" size="30" pInputText formControlName="origin" class="styled-input" />
+          <div *ngIf="isSubmitted && fc['origin'].errors" class="invalid-feedback">
+            <div *ngIf="fc['origin'].errors['required']">發貨地址是必填項</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['destination'].errors}">
+          <h4>收件地址</h4>
+          <input id="destinationInput" type="text" size="30" pInputText formControlName="destination"
+            class="styled-input" />
+          <div *ngIf="isSubmitted && fc['destination'].errors" class="invalid-feedback">
+            <div *ngIf="fc['destination'].errors['required']">收件地址是必填項</div>
+          </div>
+        </div>
+
+        <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['material'].errors}">
+          <h4>材質</h4>
+          <select id="materialInput" type="text"  pInputText class="mt-20" formControlName="material">
+            <option value="">-- Select material --</option>
+            <option *ngFor="let item of items" [ngValue]="item.value">{{item.label}}</option>
+          </select>
+          <div *ngIf="isSubmitted && fc['material'].errors" class="invalid-feedback">
+            <div *ngIf="fc['material'].errors['required']">材質是必填項</div>
+          </div>
+        </div>
+
+        <div *ngIf="isAdmin">
+          <div class="input-group" [ngClass]="{'is-invalid': isSubmitted && fc['truckingNumber'].errors}">
+            <h4>車牌號</h4>
+
+            <input id="truckingNumberInput" type="text" size="30" (click)="toggleSelect()" pInputText
+              formControlName="truckingNumber" class="styled-input">
+
+            <select multiple formControlName="truckingNumber2" *ngIf="isvisiable" (blur)="hideSelect()"
+              (change)="onChange($event)">
+              <ng-container *ngFor="let truck of trucks">
+                <ng-container *ngIf="!truck.isLoading" id="operator">
+                  <option [value]="truck.truckingNumber">
+                    {{truck.truckingNumber}}
+
+                  </option>
+                </ng-container>
+              </ng-container>
+            </select>
+
+            <div *ngIf="isSubmitted && fc['truckingNumber'].errors" class="invalid-feedback">
+              <div *ngIf="fc['truckingNumber'].errors['required']">車牌是必填項</div>
+            </div>
+          </div>
+          <div class="input-group">
+            <h4>出貨預計時間</h4>
+            <p-calendar class="mt-20" id="startDate" [iconDisplay]="'input'" [showIcon]="true"
+              formControlName="startDate" type="date" size="30"></p-calendar>
+            <div *ngIf="isSubmitted && fc['startDate'].errors" class="invalid-feedback">
+              <div *ngIf="fc['startDate'].errors['required']">出貨預計時間是必填項</div>
+              <div *ngIf="fc['startDate'].errors?.['minDate'] && fc['startDate'].touched">出貨預計時間不能比出貨時間更早</div>
+            </div>
+          </div>
+          <div class="input-group">
+            <h4>出貨預計到達</h4>
+            <p-calendar class="mt-20" id="endDate" [iconDisplay]="'input'" [showIcon]="true" formControlName="endDate"
+              type="date" size="30">
+            </p-calendar>
+            <div *ngIf="isSubmitted && fc['endDate'].errors" class="invalid-feedback">
+              <div *ngIf="fc['endDate'].errors['required']">出貨時間是必填項</div>
+            </div>
+          </div>
+        </div>
+        <p-toast></p-toast>
+        <p-confirmDialog></p-confirmDialog>
+
+        <div class="button-container">
+          <p-button type="submit" routerLink="/deliverInfos" label="確定/更改" [outlined]="true"
+            class="styled-button"></p-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

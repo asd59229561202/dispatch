@@ -1,0 +1,25 @@
+<div>
+    <p-table [value]="[user]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>使用者名稱</th>
+                <th>使用者信箱</th>
+                <th>使用者密碼</th>
+                <th>使用者地址</th>
+                <th>更改</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td><input [style]="{'border-radius':'4px 4px 0px 4px'}" [(ngModel)]="user.name" /></td>
+                <td><input [style]="{'border-radius':'4px 4px 0px 4px'}" [(ngModel)]="user.email" /></td>
+                <td><input placeholder="***********" [style]="{'border-radius':'4px 4px 0px 4px','display':'flex',
+                'justify-content':'center','align-items': 'center', }" [(ngModel)]="user.password" /></td>
+                <td><input [style]="{'border-radius':'4px 4px 0px 4px'}" [(ngModel)]="user.address" /></td>
+                <td>
+                    <p-button severity="success" (click)="saveUser(user)">Save</p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

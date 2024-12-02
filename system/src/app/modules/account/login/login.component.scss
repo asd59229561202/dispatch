@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.detail {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0rem 2rem 2rem;
+}
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.md\\:flex-row {
+  flex-direction: row;
+}
+
+.font-weight-7 {
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.md\\:w-5 {
+  width: 41.666667%;
+}
+
+.md\\:w-2 {
+  width: 16.666667%;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.form {
+  padding: 10px;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-content-center {
+  align-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1.3rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.w-6rem {
+  width: 6rem;
+}
+
+.w-12rem {
+  width: 12rem;
+}
+
+.w-10rem {
+  width: 10rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.md\\:flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.md\\:hidden {
+  display: none;
+}
+
+.font-2 {
+  font-size: 0.9rem;
+}
+
+.font-color-error {
+  color: red;
+}

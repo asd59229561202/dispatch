@@ -1,0 +1,10 @@
+<!-- product.component.html -->
+<div class="column gap-1 ">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <h2>{{ product.name }}</h2>
+    <p>Price: {{ product.price }}</p>
+    <!--Rating-->
+    <p-rating [(ngModel)] ="product.rating "
+    [readonly]="true"
+    iconCancelClass="hidden"></p-rating>
+  </div>

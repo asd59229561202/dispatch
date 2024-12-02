@@ -1,0 +1,56 @@
+.wrapper {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem;
+    box-sizing: border-box;
+
+    a {
+        text-decoration: none;
+        font-weight: 300;
+        color: black;
+
+        &.active {
+            font-weight: 900;
+        }
+    }
+
+    .title {
+        height: 2rem; /* 移除重复的 height 属性 */
+        object-fit: contain;
+        margin-right: auto;
+    }
+
+    .menu-container {
+        position: relative;
+
+        a {
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 100%; /* 确保菜单显示在容器底部 */
+            left: 0;
+            background: whitesmoke;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            min-width: 5rem; /* 设置最小宽度 */
+        }
+
+        &:focus-within .menu,
+        &:hover .menu {
+            display: block;
+        }
+
+        .menu a {
+            display: block; /* 确保每个链接占满整行 */
+            width: 100%;
+            text-align: center; /* 可选，中心对齐文本 */
+            padding: 0.5rem 0; /* 添加上下内边距 */
+            text-decoration: none;
+            color: black;
+            border:1px black solid;
+        }
+    }
+}

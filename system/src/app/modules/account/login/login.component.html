@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="detail flex flex-column">
+        <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+            <div class="label font-weight-7">Login</div>
+            <div class=" flex flex-column align-items-center justify-content-center gap-4 py-5">
+                <div class="flex flex-wrap justify-content-center align-items-center gap-3">
+                    <label class="w-6rem font-weight-7" for="Email">Email</label>
+                    <div class="flex flex-column">
+                        <input pInputText formControlName="email" type="email" class="w-12rem"
+                            [ngClass]="{'is-invalid': isSubmitted && fc['email'].errors}" />
+                        <div *ngIf="isSubmitted && fc['email'].errors" class="invalid-feedback  ">
+                            <div *ngIf="fc['email'].errors['required']" class="font-2 font-color-error">Email is empty</div>
+                            <div *ngIf="fc['email'].errors['email'] " class="font-2 font-color-error">Email must be a valid email address
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-content-center align-items-center gap-3">
+                    <label class="w-6rem font-weight-7" for="password">Password</label>
+                    <div class="flex flex-column ">
+                        <input pInputText formControlName="password" type="password" class="w-12rem"
+                            [ngClass]="{'is-invalid': isSubmitted && fc['password'].errors}" />
+                        <div class="invalid-feedback flex flex-column" *ngIf="isSubmitted && fc['password'].errors">
+                            <div *ngIf="fc['password'].errors['required']" class="font-2 font-color-error">Password is empty</div>
+                        </div>
+                    </div>
+                </div>
+                <p-button label="Login" icon="pi pi-user" styleClass="w-10rem mx-auto" type="submit"></p-button>
+                <p-button label="Register" icon="pi pi-user" severity="success" styleClass="w-10rem mx-auto color-green" routerLink="/register"></p-button>
+                
+            </div>
+        </form>
+    </div>
+</div>
