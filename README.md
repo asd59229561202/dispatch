@@ -14,7 +14,7 @@
 ### 展示範例：
 ![image](https://github.com/siengo21981981981/dispatch/blob/main/%E5%9C%96%E7%89%872-1.png)
 
-
+### 管理者能直接指定其他使用者管理階級
 ![image](https://github.com/siengo21981981981/dispatch/blob/main/%E5%9C%96%E7%89%872-2.png)
 
 
